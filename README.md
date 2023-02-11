@@ -4,7 +4,12 @@
 <p>First step:</p>
 <p>Clone it into your project folder</p>
 
-<p>Run The Tests</p>
+```shell
+$ git clone https://github.com/zstenger93/pipex_tester.git
+```
+
+<p>Run The Tests:</p>
+
 
 ```shell
 $ ./tester.sh
