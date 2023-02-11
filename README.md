@@ -5,7 +5,7 @@
 _FYI_
 
 	You don't have to pass everything(;
-	more later
+	more test later
 
 <p>First step:</p>
 <p>Clone it into your project folder</p>
