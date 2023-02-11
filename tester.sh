@@ -1,6 +1,7 @@
 #!/bin/bash
 
-gcc tester.c
+gcc tester.c -o mandatory
+gcc bonus_tester.c -o bonus
 
 for i in 1; do
   # Define the input arguments
@@ -14,6 +15,8 @@ for i in 1; do
   command6="\"ls ./\""
   command7="\"grep make\""
   command8="\"ls -la\""
+  exit_command="\"exit\""
+  exit_command2="\"exit 5\""
   wrong_command1="\"asd\""
   wrong_command2="\"dsa\""
   empty_command="\"\""
@@ -28,7 +31,10 @@ for i in 1; do
   scriptwithspace="\"./asd space.sh\""
   noaccessscript="\"./noaccess.sh\""
   folder_path="\"testfiles/./asd.sh\""
-  tester="./a.out 2>/dev/null"
+
+  tester="./mandatory 2>/dev/null"
+  tester2="./bonus 2>/dev/null"
+
 
 #   test 1
   test1="$tester $makefile $command1 $command1 results/outfile1"
@@ -75,6 +81,16 @@ for i in 1; do
   # Run the tester
 #   test 21
   test21="$tester $makefile $command1 $folder_path results/outfile21"
+
+
+
+  #   btest 1
+  btest1="$tester2 $makefile $command1 $command1 $command1 $command1 $command1 $command1 results/bonus/outfile1"
+  #   btest 2
+  btest2="$tester2 $makefile $command1 $command1 $wrong_command1 $command1 $command1 $command5 results/bonus/outfile2"
+  #   btest 3
+  btest3="$tester2 $makefile $command1 $command1 $empty_command $command1 $command1 $command1 results/bonus/outfile3"
+
 test
 
   # Read the output of the tester
@@ -100,6 +116,11 @@ test
   result19=$(eval "$test19")
   result20=$(eval "$test20")
   result21=$(eval "$test21")
+
+
+  result22=$(eval "$btest1")
+  result23=$(eval "$btest2")
+  result24=$(eval "$btest3")
 
   echo -e "		  \033[1;31m ██▓███▒░░▒██▒░ ██▓███▒░██████▒░▒██▒░▒██▒░\033[0m"
   echo -e "		  \033[1;31m▓██▒░░██▒░▒██▒░▓██▒░░██▒██▒░░░░░░▒██░██▒░\033[0m"
@@ -232,6 +253,24 @@ test
     echo -e "\033[1;31m21.KO \033[0m"
   fi
   echo -e "                                     \033[1;4;30mbonus:\033[0m"
+
+  if [ "$result22" == "Test passed: Output is as expected" ]; then
+    echo -e -n "\033[1;92m22.OK \033[0m"
+  else
+    echo -e -n "\033[1;31m22.KO \033[0m"
+  fi
+  #   your pipex expected output:
+# pipex: asd: command not found
+  if [ "$result23" == "Test passed: Output is as expected" ]; then
+    echo -e -n "\033[1;92m23.OK \033[0m"
+  else
+    echo -e -n "\033[1;31m23.KO \033[0m"
+  fi
+  if [ "$result24" == "pipex: Permission denied:" ]; then
+    echo -e -n "\033[1;92m24.OK \033[0m"
+  else
+    echo -e -n "\033[1;31m24.KO \033[0m"
+  fi
 
 done
 echo -e ""
