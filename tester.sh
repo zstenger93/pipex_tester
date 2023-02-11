@@ -28,7 +28,7 @@ for i in 1; do
   scriptwithspace="\"./asd space.sh\""
   noaccessscript="\"./noaccess.sh\""
   folder_path="\"testfiles/./asd.sh\""
-  tester="./a.out" 2>/dev/null
+  tester="./a.out 2>/dev/null"
 
 #   test 1
   test1="$tester $makefile $command1 $command1 results/outfile1"
