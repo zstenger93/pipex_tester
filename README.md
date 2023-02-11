@@ -1,6 +1,10 @@
 <div align=center>
 <h1>💡PIPEX_TESTER💡</h1>
 <h2>🛠️USAGE🛠️<h2>
+
+_FYI_
+	You don't have to pass everything(;
+
 <p>First step:</p>
 <p>Clone it into your project folder</p>
 
