@@ -8,7 +8,7 @@
 $ git clone https://github.com/zstenger93/pipex_tester.git
 ```
 
-<p>Run The Tests:</p>
+<p>Run this inside the pipex_tester folder:</p>
 
 
 ```shell
